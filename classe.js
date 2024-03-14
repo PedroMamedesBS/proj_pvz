@@ -7,3 +7,20 @@ class Obj{
         this.a = a
     }
 }
+
+class Planta extends Obj{
+    des_planta(){
+
+
+    }
+    atual_planta(){
+
+    }
+    ponto(objeto){
+
+    }
+    colide(objeto){
+        
+    }
+
+}
