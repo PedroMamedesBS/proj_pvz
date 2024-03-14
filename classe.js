@@ -32,7 +32,18 @@ class inimigo{
     des_zumbi(){
         
     }
+
     atual_zumbi(){
+
+    
+     }
+    }
+
+class Tiro{
+    des_tiro(){
         
+    }
+    atual_tiro(){
+    
     }
 }
