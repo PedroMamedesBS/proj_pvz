@@ -34,11 +34,11 @@ class Planta extends Obj{
     atual_planta(){
 
     }
-    ponto(objeto){
+    point(objeto){
 
     }
     colid(objeto){
-
+        
     }
 
 }
@@ -65,6 +65,12 @@ class Tiro{
     
     }
     colid_projetil(){
+
+    }
+}
+
+class Text{
+    des_text(){
 
     }
 }
