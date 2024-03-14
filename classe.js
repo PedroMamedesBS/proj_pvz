@@ -24,3 +24,12 @@ class Planta extends Obj{
     }
 
 }
+
+class inimigo{
+    desenha_zumbi(){
+        
+    }
+    atualiza_zumbi(){
+        
+    }
+}
