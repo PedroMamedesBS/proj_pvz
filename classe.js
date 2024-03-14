@@ -18,6 +18,8 @@ class Obj{
 }
 
 class Planta extends Obj{
+    move = 0
+
     des_planta(){
         des.beginPath()
         des.moveTo(this.x,this.y)
