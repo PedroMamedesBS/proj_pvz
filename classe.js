@@ -22,7 +22,7 @@ class Planta extends Obj{
     ponto(objeto){
 
     }
-    colide(objeto){
+    colid(objeto){
         
     }
 
