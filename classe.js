@@ -29,10 +29,10 @@ class Planta extends Obj{
 }
 
 class inimigo{
-    desenha_zumbi(){
+    des_zumbi(){
         
     }
-    atualiza_zumbi(){
+    atual_zumbi(){
         
     }
 }
