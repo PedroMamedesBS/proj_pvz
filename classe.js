@@ -37,7 +37,7 @@ class inimigo{
 
     
      }
-    }
+}
 
 class Tiro{
     des_tiro(){
