@@ -30,6 +30,15 @@ class inimigo{
         
     }
     atualiza_zumbi(){
+
+    }
+}
+
+class Tiro{
+    desenha_tiro(){
         
+    }
+    atualiza_tiro(){
+    
     }
 }
