@@ -1,6 +1,6 @@
 let des = document.getElementById('des').getContext('2d')
 
-let planta = new Planta(225,500,45,100,'./assets/planta.png')
+let planta = new Planta(330,260,63,90,'./assets/planta.png')
 
 
 
@@ -11,3 +11,12 @@ function desenha(){
 function atualiza(){
 
 }
+
+function main(){
+    des.clearRect(0,0,500,700)
+    desenha()
+    atualiza()
+
+}
+
+setInterval(main,10)
