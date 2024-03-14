@@ -37,6 +37,9 @@ class inimigo{
 
     
      }
+     recomeca(){
+        
+     }
 }
 
 class Tiro{
@@ -45,5 +48,8 @@ class Tiro{
     }
     atual_tiro(){
     
+    }
+    colid_projetil(){
+
     }
 }
