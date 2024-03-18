@@ -1,6 +1,9 @@
 let des = document.getElementById('des').getContext('2d')
 
 let planta = new Planta(330,260,63,90,'./assets/planta.png')
+let zumbi_1 = new Zumbi(1250,260,90,120,'./assets/zumbidesenhado.png')
+let zumbi_2 = new Zumbi(1250,360,90,120,'./assets/zumbidesenhado.png')
+let zumbi_3 = new Zumbi(1250,460,90,120,'./assets/zumbidesenhado.png')
 
 let grupoTiros = []
 let tiros = {
@@ -37,8 +40,13 @@ document.addEventListener('keyup', (e)=>{
 
 function desenha(){
     planta.des_img()
+    zumbi_1.des_img()
+    zumbi_2.des_img()
+    zumbi_3.des_img()
+
 }
 function atualiza(){
+    planta.atual_planta()
 
 }
 

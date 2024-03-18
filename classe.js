@@ -36,6 +36,12 @@ class Planta extends Obj{
 
     }
     atual_planta(){
+        this.y += this.move
+        if(this.y <= 4){
+            this.y = 4
+        }else if(this.y >= 490){
+            this.y = 490
+        }
 
     }
     point(objeto){
@@ -47,9 +53,19 @@ class Planta extends Obj{
 
 }
 
-class inimigo{
+class Zumbi extends Obj{
     des_zumbi(){
-        
+        des.beginPath()
+        des.moveTo(this.x,this.y)
+        des.lineTo(this.x+50,this.y)
+        des.lineTo(this.x+40,this.y-50)
+        des.lineTo(this.x+50,this.y-10)
+        des.closePath()
+        des.lineWidth = '5'
+        des.strokeStyle = 'blue'
+        des.fillStyle = this.a
+        des.stroke()
+        des.fill()
     }
 
     atual_zumbi(){
