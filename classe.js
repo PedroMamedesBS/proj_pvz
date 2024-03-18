@@ -42,6 +42,7 @@ class Planta extends Obj{
 
     }
     colid(objeto){
+        // programnado colisão
         
     }
 
