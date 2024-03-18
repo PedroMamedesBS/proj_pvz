@@ -39,7 +39,7 @@ class Planta extends Obj{
 
     }
     point(objeto){
-
+        
     }
     colid(objeto){
         
@@ -61,9 +61,10 @@ class inimigo{
      }
 }
 
-class Tiro{
+class Tiro extends Obj{
     des_tiro(){
-        
+        des.fillStyle = this.a
+        des.fillRect = (this.x, this.y, this.w, this.h)
     }
     atual_tiro(){
     
