@@ -48,10 +48,17 @@ class Planta extends Obj{
         
     }
     colid(objeto){
-        
+        if((this.x < objeto.x + objeto.w)&&(this.x + this.w > objeto.x)&&(this.y < objeto.y + objeto.h)&&(this.y + this.h > objeto.y)){
+            return true
+        }else{
+            return false
+        }
+    }
     }
 
-}
+    
+
+
 
 class inimigo{
     des_zumbi(){
@@ -75,9 +82,12 @@ class Tiro extends Obj{
     atual_tiro(){
         this.x -= 10
     }
-    colid_projetil(){
+}
+class colid_projetil extends Obj(){
+    move(){
+        this.x +=10
+      }
 
-    }
 }
 
 class Text{
