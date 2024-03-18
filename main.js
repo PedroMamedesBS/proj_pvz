@@ -39,11 +39,12 @@ function desenha(){
     planta.des_img()
 }
 function atualiza(){
+    planta.atual_planta()
 
 }
 
 function main(){
-    des.clearRect(0,0,500,700)
+    des.clearRect(0,0,1300,600)
     desenha()
     atualiza()
 
