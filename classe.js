@@ -67,7 +67,7 @@ class Tiro extends Obj{
         des.fillRect = (this.x, this.y, this.w, this.h)
     }
     atual_tiro(){
-    
+        this.x -= 10
     }
     colid_projetil(){
 

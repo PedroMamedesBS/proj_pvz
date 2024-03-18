@@ -2,7 +2,22 @@ let des = document.getElementById('des').getContext('2d')
 
 let planta = new Planta(330,260,63,90,'./assets/planta.png')
 
-
+let grupoTiros = []
+let tiros = {
+    des() {
+        grupoTiros.forEach((tiro)=>{
+            tiro.des_tiro()
+        })
+    },
+    atual(){
+        grupoTiros.forEach((tiro)=>{
+            tiro.mov()
+            if(tiro.y <= -10){
+                grupoTiros.splice(tiro[0],1)
+            }
+        })
+    }
+}
 
 document.addEventListener('keydown', (e)=>{
     if(e.key === 'w'){
