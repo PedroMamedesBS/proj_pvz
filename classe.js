@@ -11,17 +11,21 @@ class Obj{
         des.fillRect(this.x,this.y,this.w,this.h)
     }
     des_img(){
-        
+        let img = new Image()
+        img.src = this.a 
+        des.drawImage(img,this.x,this.y,this.w,this.h)
     }
 }
 
 class Planta extends Obj{
+    move = 0
+
     des_planta(){
         des.beginPath()
         des.moveTo(this.x,this.y)
         des.lineTo(this.x+50,this.y)
         des.lineTo(this.x+40,this.y-50)
-        des.lineTo(this.x+10,this.y-50)
+        des.lineTo(this.x+50,this.y-10)
         des.closePath()
         des.lineWidth = '5'
         des.strokeStyle = 'blue'
@@ -35,7 +39,7 @@ class Planta extends Obj{
 
     }
     point(objeto){
-
+        
     }
     colid(objeto){
         
@@ -57,9 +61,10 @@ class inimigo{
      }
 }
 
-class Tiro{
+class Tiro extends Obj{
     des_tiro(){
-        
+        des.fillStyle = this.a
+        des.fillRect = (this.x, this.y, this.w, this.h)
     }
     atual_tiro(){
     
