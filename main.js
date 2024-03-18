@@ -1,23 +1,8 @@
 let des = document.getElementById('des').getContext('2d')
 
 let planta = new Planta(330,260,63,90,'./assets/planta.png')
+let tiro = new Tiro (330,260,40,40,'./assets/tiro.png')
 
-let grupoTiros = []
-let tiros = {
-    des() {
-        grupoTiros.forEach((tiro)=>{
-            tiro.des_tiro()
-        })
-    },
-    atual(){
-        grupoTiros.forEach((tiro)=>{
-            tiro.mov()
-            if(tiro.y <= -10){
-                grupoTiros.splice(tiro[0],1)
-            }
-        })
-    }
-}
 
 document.addEventListener('keydown', (e)=>{
     if(e.key === 'w'){
@@ -35,12 +20,25 @@ document.addEventListener('keyup', (e)=>{
     }
 })
 
+
+document.addEventListener("click", (e)=>{
+    if(e.key === 'click'){
+        tiro = true
+    }
+  });
+
+
+
+
 function desenha(){
     planta.des_img()
+    tiro.des_tiro()
+    
 }
 function atualiza(){
     planta.atual_planta()
-
+    tiro.atual_tiro()
+    
 }
 
 function main(){

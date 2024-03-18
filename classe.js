@@ -15,6 +15,7 @@ class Obj{
         img.src = this.a 
         des.drawImage(img,this.x,this.y,this.w,this.h)
     }
+    
 }
 
 class Planta extends Obj{
@@ -83,12 +84,7 @@ class Tiro extends Obj{
         this.x -= 10
     }
 }
-class colid_projetil extends Obj(){
-    move(){
-        this.x +=10
-      }
 
-}
 
 class Text{
     des_text(text,x,y,cor,font){
