@@ -15,6 +15,7 @@ class Obj{
         img.src = this.a 
         des.drawImage(img,this.x,this.y,this.w,this.h)
     }
+    
 }
 
 class Planta extends Obj{
@@ -36,16 +37,29 @@ class Planta extends Obj{
 
     }
     atual_planta(){
+        this.y += this.move
+    if(this.y <= 4){
+        this.y = 4
+    }else if(this.y >= 490){
+        this.y = 490
+    }
 
     }
     point(objeto){
         
     }
     colid(objeto){
-        
+        if((this.x < objeto.x + objeto.w)&&(this.x + this.w > objeto.x)&&(this.y < objeto.y + objeto.h)&&(this.y + this.h > objeto.y)){
+            return true
+        }else{
+            return false
+        }
+    }
     }
 
-}
+    
+
+
 
 class inimigo{
     des_zumbi(){
@@ -67,12 +81,10 @@ class Tiro extends Obj{
         des.fillRect = (this.x, this.y, this.w, this.h)
     }
     atual_tiro(){
-    
-    }
-    colid_projetil(){
-
+        this.x -= 10
     }
 }
+
 
 class Text{
     des_text(text,x,y,cor,font){
