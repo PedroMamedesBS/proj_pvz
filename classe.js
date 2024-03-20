@@ -57,7 +57,7 @@ class Planta extends Obj{
 
 }
 
-class inimigo{
+class Zumbi{
     des_zumbi(){
         des.beginPath()
         des.moveTo(this.x,this.y)
@@ -73,11 +73,16 @@ class inimigo{
     }
 
     atual_zumbi(){
-
+        this.x += 4
+        if(this.x >= 320){
+            this.recomeca()
+        }
     
      }
      recomeca(){
-        
+        this.x = -100
+        this.y = Math.floor(Math.random() * ((416 - 2 + 1)+ 2)) // quando zumbi sair da tela
+    
      }
 }
 
@@ -90,7 +95,7 @@ class Tiro extends Obj{
         this.x -= 10
     }
 }
-class colid_projetil extends Obj(){
+class colid_projetil extends Obj{
     move(){
         this.x +=10
       }
