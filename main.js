@@ -38,20 +38,23 @@ document.addEventListener("click", (e)=>{
 
 function desenha(){
     planta.des_img()
-    
-    zumbi_1.des_img()
-    zumbi_2.des_img()
-    zumbi_3.des_img()
 
     tiro.des_tiro()
+
+    zumbi_1.des_zumbi()
+    zumbi_2.des_zumbi()
+    zumbi_3.des_zumbi()
     
 }
 function atualiza(){
     planta.atual_planta()
     tiro.atual_tiro()
     
-
+    zumbi_1.atual_zumbi()
+    zumbi_2.atual_zumbi()
+    zumbi_3.atual_zumbi()
     
+
 }
 
 
