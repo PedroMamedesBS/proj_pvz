@@ -51,13 +51,11 @@ document.addEventListener('keyup', (e)=>{
 //         grupoTiros.push(new Tiro(this.planta.x,(this.planta.y+ this.planta.h/2), -30, 18, 8, './assets/tiro.png'))
 //     }
 //   });
-click(){
+click() { 
     if(bullets > 0){
-        bullets -= 1
-       grupoTiros.push(new Tiro(this.heroi.x,(this.heroi.y+this.heroi.h/2)-30,18,8, "assets/tiro.png"))
-    }
-
-}
+    bullets -= 1
+   grupoTiros.push(new Tiro(this.planta.x,(this.planta.y+this.planta.h/2)-30,18,8, "assets/tiro.png"))
+}}
 function desenha(){
     //planta
     planta.des_img()
