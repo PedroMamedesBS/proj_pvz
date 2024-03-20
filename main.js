@@ -41,9 +41,9 @@ function desenha(){
 
     tiro.des_tiro()
 
-    zumbi_1.des_zumbi()
-    zumbi_2.des_zumbi()
-    zumbi_3.des_zumbi()
+    zumbi_1.des_img()
+    zumbi_2.des_img()
+    zumbi_3.des_img()
     
 }
 function atualiza(){

@@ -57,7 +57,7 @@ class Planta extends Obj{
 
 }
 
-class Zumbi{
+class Zumbi extends Obj{
     des_zumbi(){
         des.beginPath()
         des.moveTo(this.x,this.y)
@@ -73,8 +73,8 @@ class Zumbi{
     }
 
     atual_zumbi(){
-        this.x += 4
-        if(this.x >= 320){
+        this.x -= 4
+        if(this.x <= 280){
             this.recomeca()
         }
     
