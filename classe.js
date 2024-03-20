@@ -80,10 +80,9 @@ class Zumbi extends Obj{
     
      }
      recomeca(){
-        this.x = -100
-        this.y = Math.floor(Math.random() * ((416 - 2 + 1)+ 2)) // quando zumbi sair da tela
-    
-     }
+        this.y = 50
+        this.x = Math.floor(Math.random() * ((4000 - 2 + 1)+ 2))
+    }
 }
 
 class Tiro extends Obj{
