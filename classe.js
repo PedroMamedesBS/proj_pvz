@@ -37,7 +37,12 @@ class Planta extends Obj{
 
     }
     atual_planta(){
-
+        this.y += this.move
+    if(this.y <= 4){
+        this.y = 4
+    }else if(this.y >= 490){
+        this.y = 490
+    }
     }
     point(objeto){
         
