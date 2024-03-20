@@ -90,7 +90,7 @@ class Tiro extends Obj{
         this.x -= 10
     }
 }
-class colid_projetil extends Obj(){
+class colid_projetil extends Obj{
     move(){
         this.x +=10
       }

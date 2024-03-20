@@ -29,7 +29,7 @@ document.addEventListener('keyup', (e)=>{
 
 document.addEventListener("click", (e)=>{
     if(e.key === 'click'){
-        tiro = true
+        tiro.move = 0
     }
   });
 
@@ -38,6 +38,10 @@ document.addEventListener("click", (e)=>{
 
 function desenha(){
     planta.des_img()
+    
+    zumbi_1.des_img()
+    zumbi_2.des_img()
+    zumbi_3.des_img()
 
     tiro.des_tiro()
     
@@ -47,16 +51,9 @@ function atualiza(){
     tiro.atual_tiro()
     
 
-    zumbi_1.des_img()
-    zumbi_2.des_img()
-    zumbi_3.des_img()
-
+    
 }
-function atualiza(){
-    planta.atual_planta()
 
-
-}
 
 function main(){
     des.clearRect(0,0,1300,600)
