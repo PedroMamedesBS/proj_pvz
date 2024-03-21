@@ -18,11 +18,7 @@ function mudaCena(cena){
   cenaCorrente = cena
 }
 
-let som1 = new Audio("assets/batalha.wav")
-let som2 = new Audio("assets/flecha.mp3")
-let som3 = new Audio("assets/game-over.wav")
-let som4 = new Audio("assets/hit-impact.ogg")
-let som5 = new Audio("assets/dark-forest.mp3")
+
 
 let bullets = 5
 let pts = 0
@@ -44,45 +40,45 @@ let shoots = {
   },
 }
 
-let groupOrcs = []
-let orcs ={
+let grupoZumbis = []
+let zumbis ={
   time : 0,
-  spawOrcs(){
+  spawZumbi(){
     this.time +=1
     // size_X = Math.random() * (100 - 80) + 80
     // size_Y = Math.random() * (140 - 80) + 80
     pos_Y = Math.random() *(500 - 80) + 80
     if(this.time>=60){
-      groupOrcs.push(new Orcs(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
+      grupoZumbis.push(new Zumbi(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
       this.time=0
     }
   },
-  destroyOrcs(){
+  destroyZumbi(){
     groupShoot.forEach((shoot)=>{
-      groupOrcs.forEach((orc)=>{
-        if(shoot.collide(orc)){
+      grupoZumbis.forEach((zumbi)=>{
+        if(shoot.collide(zumbi)){
           groupShoot.splice(groupShoot.indexOf(shoot),1)
-          groupOrcs.splice(groupOrcs.indexOf(orc),1)
+          grupoZumbis.splice(grupoZumbis.indexOf(zumbi),1)
           bullets = 5
           pts += 1
-          som4.play()
+          
         }
       })
     })
   },
 
   draw(){
-    groupOrcs.forEach((orc)=>{
-      orc.draw()
+    grupoZumbis.forEach((zumbi)=>{
+      zumbi.draw()
     })
   },
   update(){
-    this.spawOrcs()
-    this.destroyOrcs()
-    groupOrcs.forEach((orc)=>{
-      orc.move()
-      if(orc.x < -100){
-        groupOrcs.splice(groupOrcs.indexOf(orc),1)
+    this.spawZumbi()
+    this.destroyZumbi()
+    grupoZumbis.forEach((zumbi)=>{
+      zumbi.move()
+      if(zumbi.x < -100){
+        grupoZumbis.splice(grupoZumbis.indexOf(zumbi),1)
         mudaCena(gameOver)
       }
     })
@@ -146,7 +142,7 @@ let game = {
   click(){
     if(bullets > 0){
       bullets -= 1
-      som2.play()
+      
       groupShoot.push(new Shoot((this.heroi.x+60),(this.heroi.y+this.heroi.height/2)-30,30,30, "assets/tiro.png"))
     }
   },
@@ -162,14 +158,14 @@ let game = {
     this.placar.draw_text(30,"Tahoma",1210,50,"white")
     this.heroi.draw()
     shoots.draw()
-    orcs.draw()
-    som1.play()
-    som3.pause()    
+    zumbis.draw()
+    
+     
   },
   update(){
     infinityBg.moveBg()
     shoots.update()
-    orcs.update()
+    zumbis.update()
     this.placar.update_text(pts)
   },
 }
@@ -195,7 +191,7 @@ let gameOver = {
   limpa_cena(){
     pts = 0
     bullets = 5
-    groupOrcs = []
+    grupoZumbis = []
     groupShoot = []    
   },
 
