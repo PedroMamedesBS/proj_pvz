@@ -30,61 +30,49 @@ let tiros = {
     }
 }
 
-let grupoDiscos = []
-let discos = {
-    time1: 0, 
-    time2: 0,
-    time3: 0,
-
-    criaDisco(){
-        this.time1 += 1
-        this.time2 += 1
-        this.time3 += 1
-        let pos_x = (Math.random() * (438 - 2 +1)+2)
-        let pos_x2 = (Math.random() * (438 - 2 +1)+2)
-        let pos_x3 = (Math.random() * (438 - 2 +1)+2)
-        if(this.time1 >=60){
-            this.time1 = 0
-            grupoDiscos.push(new Disco(pos_x,-200,50,50,'assets/disco.png'))
-            console.log(grupoDiscos)
-        }
-        if(this.time2 >=85){
-            this.time2 = 0
-            grupoDiscos.push(new Disco(pos_x2,-300,50,50,'assets/disco2.png'))
-            console.log(grupoDiscos)
-        }
-        if(this.time3 >=135){
-            this.time3 = 0
-            grupoDiscos.push(new Disco(pos_x3,-400,50,50,'assets/disco3.png'))
-            console.log(grupoDiscos)
-        }
-    },
-    des(){
-        grupoDiscos.forEach((disc)=>{
-            disc.des_obj()
-        })
-    },
-    destroiDisco(){
-        grupoTiros.forEach((tiro)=>{
-            grupoDiscos.forEach((disc)=>{
-                if(tiro.colid(disc)){
-                    grupoTiros.splice(grupoTiros.indexOf(tiro), 1)
-                    grupoDiscos.splice(grupoDiscos.indexOf(disc), 1)
-                    nav1.pts +=1
-                }
-            })
-        })
-    },
-    atual(){
-        this.criaDisco()
-        this.destroiDisco()
-        grupoDiscos.forEach((disc)=>{
-            disc.mov()
-            if(disc.y >= 710){
-                grupoDiscos.splice(grupoDiscos.indexOf(disc),1)
-            }
-        })
+let groupZumbis = []
+let Zumbi ={
+  time : 0,
+  spawZumbi(){
+    this.time +=1
+    // size_X = Math.random() * (100 - 80) + 80
+    // size_Y = Math.random() * (140 - 80) + 80
+    pos_Y = Math.random() *(500 - 80) + 80
+    if(this.time>=60){
+      groupZumbis.push(new Zumbi(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
+      this.time=0
     }
+  },
+  destroyZumbis(){
+    groupShoot.forEach((shoot)=>{
+      groupZumbis.forEach((zumbi_1)=>{
+        if(shoot.collide(zumbi_1)){
+          groupShoot.splice(groupShoot.indexOf(shoot),1)
+          groupZumbis.splice(groupZumbis.indexOf(zumbi_1),1)
+          bullets = 5
+          pts += 1
+          som4.play()
+        }
+      })
+    })
+  },
+
+  draw(){
+    groupZumbis.forEach((zumbi_1)=>{
+      zumbi_1.draw()
+    })
+  },
+  update(){
+    this.spawZumbi()
+    this.destroyZumbis()
+    groupZumbis.forEach((zumbi_1)=>{
+      zumbi_1.move()
+      if(zumbi_1.x < -100){
+        groupZumbis.splice(groupZumbis.indexOf(zumbi_1),1)
+        mudaCena(gameOver)
+      }
+    })
+  }
 }
 
 document.addEventListener('keydown', (ev)=>{
