@@ -1,113 +1,76 @@
 class Obj{
-    constructor(x,y,w,h,a){
-        this.x = x 
-        this.y = y 
-        this.w = w 
-        this.h = h
-        this.a = a
-    }
-    des_obj(){
-        des.fillStyle = this.a
-        des.fillRect(this.x,this.y,this.w,this.h)
-    }
-    des_img(){
-        let img = new Image()
-        img.src = this.a 
-        des.drawImage(img,this.x,this.y,this.w,this.h)
-    }
-    
-}
 
-class Planta extends Obj{
-    move = 0
+  frame = 0
+  timer = 0
+  set_visible = true
 
-    des_planta(){
-        des.beginPath()
-        des.moveTo(this.x,this.y)
-        des.lineTo(this.x+50,this.y)
-        des.lineTo(this.x+40,this.y-50)
-        des.lineTo(this.x+50,this.y-10)
-        des.closePath()
-        des.lineWidth = '5'
-        des.strokeStyle = 'blue'
-        des.fillStyle = this.a
-        des.stroke()
-        des.fill()
+  constructor(x,y,width,height, image){
+    this.x = x
+    this.y = y
+    this.width = width
+    this.height = height
+    this.image = image
+  }
 
+  draw(){
+    if (this.set_visible) {
+      var img = new Image()
+      img.src = this.image
+      canvas.drawImage(img, this.x, this.y, this.width, this.height)
+    }
+  }
 
+  animation(vel, limit, nome){
+    this.timer += 1
+    if (this.timer >= vel) {
+      this.timer = 0
+      this.frame += 1
     }
-    atual_planta(){
-        this.y += this.move
-    if(this.y <= 4){
-        this.y = 4
-    }else if(this.y >= 490){
-        this.y = 490
+    if (this.frame >= limit) {
+      this.frame = 0
     }
-    }
-    point(objeto){
-        
-    }
-    colid(objeto){
-        if((this.x < objeto.x + objeto.w)&&(this.x + this.w > objeto.x)&&(this.y < objeto.y + objeto.h)&&(this.y + this.h > objeto.y)){
-            return true
-        }else{
-            return false
+    this.image = "assets/images/" + nome + this.frame + ".png"
+  }
+
+  collide(obj){
+    if (this.x < obj.x + obj.width &&
+        this.x + this.width > obj.x &&
+        this.y < obj.y + obj.height &&
+        this.y + this.height > obj.y)
+        {
+          return true
+        }else {
+          return false
         }
-    }
-
+  }
 }
-
-class Zumbi extends Obj{
-    des_zumbi(){
-        des.beginPath()
-        des.moveTo(this.x,this.y)
-        des.lineTo(this.x+50,this.y)
-        des.lineTo(this.x+40,this.y-50)
-        des.lineTo(this.x+50,this.y-10)
-        des.closePath()
-        des.lineWidth = '5'
-        des.strokeStyle = 'blue'
-        des.fillStyle = this.a
-        des.stroke()
-        des.fill()
-    }
-
-    atual_zumbi(){
-        this.x -= 4
-        if(this.x <= 280){
-            this.recomeca()
-        }
-    
-     }
-     recomeca(){
-        this.y = 50
-        this.x = Math.floor(Math.random() * ((4000 - 2 + 1)+ 2))
-    }
-}
-
-class Tiro extends Obj{
-    des_tiro(){
-        des.fillStyle = this.a
-        des.fillRect = (this.x, this.y, this.w, this.h)
-    }
-    atual_tiro(){
-        this.x += 10
-    }
-}
-class colid_projetil extends Obj{
-    move(){
-        this.x +=10
-      }
-
-}
-
 
 class Text{
-    des_text(text,x,y,cor,font){
-        des.fillStyle = cor
-        des.lineWidth = '5'
-        des.font = font
-        des.fillText(text,x,y)
-    
-    }
+  texto = ""
+  constructor(text){
+    this.texto = text
+  }
+  draw_text(size, font, x, y, color){
+    canvas.font = size + "px" + " " + font
+    canvas.fillStyle = color
+    canvas.fillText(this.texto, x, y)
+  }
+  update_text(valor){
+    this.texto = valor
+  }
 }
+
+class Shoot extends Obj{
+  move(){
+    this.x +=10
+  }
+}
+
+class Orcs extends Obj{
+  velocidade = Math.random()*(12 - 2) + 2
+  move(){
+    this.x -= this.velocidade
+  }
+}
+
+
