@@ -63,11 +63,12 @@ document.addEventListener('keyup', (e)=>{
 //         grupoTiros.push(new Tiro(this.planta.x,(this.planta.y+ this.planta.h/2), -30, 18, 8, './assets/tiro.png'))
 //     }
 //   });
-click() { 
+function click() { 
     if(bullets > 0){
     bullets -= 1
    grupoTiros.push(new Tiro(this.planta.x,(this.planta.y+this.planta.h/2)-30,18,8, "assets/tiro.png"))
-}}
+    }
+}
 function desenha(){
     //planta
     planta.des_img()
@@ -106,7 +107,8 @@ function main(){
     des.clearRect(0,0,1300,600)
     desenha()
     atualiza()
+    requestAnimationFrame(main)
 
 }
 
-setInterval(main,10)
+main()
