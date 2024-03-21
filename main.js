@@ -49,7 +49,7 @@ let zumbis ={
     // size_Y = Math.random() * (140 - 80) + 80
     pos_Y = Math.random() *(500 - 80) + 80
     if(this.time>=60){
-      grupoZumbis.push(new Zumbi(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
+      grupoZumbis.push(new Zumbi(1400, pos_Y, 120, 120, "assets/zumbidesenhado.png"))
       this.time=0
     }
   },
@@ -137,7 +137,7 @@ let menu = {
 let game = {
   placar_txt: new Text("Pontos: "),
   placar: new Text(pts),
-  heroi: new Obj(30,200,80,120, "assets/planta.png"),
+  heroi: new Obj(30,200,70,90, "assets/planta.png"),
 
   click(){
     if(bullets > 0){
