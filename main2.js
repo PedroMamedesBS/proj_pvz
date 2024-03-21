@@ -1,19 +1,17 @@
 let des = document.getElementById('des').getContext('2d')
 
-let bg1 = new BG(0,0,500,700,'assets/background.jpg')
-let bg2 = new BG(0,-700,500,700,'assets/background2.jpg')
-let bg3 = new BG(0,-1400,500,700,'assets/background.jpg')
-let bg4 = new BG(0,-2100,500,700,'assets/background2.jpg')
-let nav1 = new Nave(200,620,50,70,'assets/nave.png')
-let txt_pts = new Texto()
-let pts = new Texto()
-let txt_vidas = new Texto()
-let n_vidas = new Texto()
-const som1 = new Audio('assets/nave_som.mp3')
-const som2 = new Audio('assets/batida.mp3')
-som1.volume = 1.0
-som1.loop = true
-som2.volume = 0.7
+// let bg1 = new BG(0,0,500,700,'assets/background.jpg')
+// let bg2 = new BG(0,-700,500,700,'assets/background2.jpg')
+// let bg3 = new BG(0,-1400,500,700,'assets/background.jpg')
+// let bg4 = new BG(0,-2100,500,700,'assets/background2.jpg')
+let planta = new Planta(200,620,50,70,'assets/nave.png')
+let txt_pts = new Text()
+let pts = new Text()
+let txt_vidas = new Text()
+let n_vidas = new Text()
+// const som1 = new Audio('assets/nave_som.mp3')
+// const som2 = new Audio('assets/batida.mp3')
+
 
 let grupoTiros = [] 
 let tiros = {
@@ -90,24 +88,24 @@ let discos = {
 }
 
 document.addEventListener('keydown', (ev)=>{
-    if(ev.key === 'a'){
-        nav1.dir -=5
+    if(ev.key === 'w'){
+        nav1.dir -=10
     }
-    if(ev.key === 'd'){
-        nav1.dir +=5
+    if(ev.key === 's'){
+        nav1.dir +=10
     }   
 })
 document.addEventListener('keyup', (ev)=>{
-    if(ev.key === 'a'){
+    if(ev.key === 'w'){
         nav1.dir = 0
     }
-    if(ev.key === 'd'){
+    if(ev.key === 's'){
         nav1.dir = 0
     }
 })
 document.addEventListener('click', (ev)=>{
     
-        grupoTiros.push(new Tiro(nav1.x - 4 + nav1.w / 2, nav1.y, 8, 16, 'red'))
+        grupoTiros.push(new Tiro(planta.x - 4 + planta.w / 2, planta.y, 8, 16, 'tiro.png'))
         // console.log(grupoTiros)
     
     // som1.play()
@@ -115,7 +113,7 @@ document.addEventListener('click', (ev)=>{
 
 function colisao(){
     grupoDiscos.forEach((disc)=>{
-        if(nav1.colid(disc)){
+        if(planta.colid(disc)){
             grupoDiscos.splice(grupoDiscos.indexOf(disc), 1)
             nav1.vida -=1
         }
@@ -123,11 +121,11 @@ function colisao(){
 }
 
 function desenha(){    
-    bg1.des_obj()
-    bg2.des_obj()
-    bg3.des_obj()
-    bg4.des_obj()    
-    nav1.des_obj()    
+    // bg1.des_obj()
+    // bg2.des_obj()
+    // bg3.des_obj()
+    // bg4.des_obj()    
+    planta.des_obj()    
     tiros.des()
     discos.des()
     txt_pts.des_text('Pontos:',20,40,'white','30px Times')
@@ -137,11 +135,11 @@ function desenha(){
 }
 
 function atualiza(){
-    bg1.mov(0,2100)
-    bg2.mov(-700,1400)
-    bg3.mov(-1400,700)
-    bg4.mov(-2100,0)    
-    nav1.mov()
+    // bg1.mov(0,2100)
+    // bg2.mov(-700,1400)
+    // bg3.mov(-1400,700)
+    // bg4.mov(-2100,0)    
+    planta.mov()
     tiros.atual()
     discos.atual()
     colisao()    
