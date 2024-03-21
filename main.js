@@ -119,7 +119,7 @@ let infinityBg = {
 
 let menu = {
   
-  titulo: new Text("ORCs"),
+  titulo: new Text("Plantas vs Zumbis"),
   titulo2: new Text("Click para Iniciar"),
   heroi: new Obj(30,380,80,120, "assets/planta.png"),
   
