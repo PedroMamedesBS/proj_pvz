@@ -56,7 +56,7 @@ let zumbis ={
   destroyZumbi(){
     groupShoot.forEach((shoot)=>{
       grupoZumbis.forEach((zumbi)=>{
-        if(shoot.collide(zumbi)){
+        if(shoot.colid(zumbi)){
           groupShoot.splice(groupShoot.indexOf(shoot),1)
           grupoZumbis.splice(grupoZumbis.indexOf(zumbi),1)
           bullets = 5

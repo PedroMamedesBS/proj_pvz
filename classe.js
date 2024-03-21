@@ -3,6 +3,7 @@ class Obj{
   frame = 0
   timer = 0
   set_visible = true
+  vida = 5
 
   constructor(x,y,width,height, image){
     this.x = x
@@ -32,7 +33,7 @@ class Obj{
     this.image = "assets/images/" + nome + this.frame + ".png"
   }
 
-  collide(obj){
+  colid(obj){
     if (this.x < obj.x + obj.width &&
         this.x + this.width > obj.x &&
         this.y < obj.y + obj.height &&
