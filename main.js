@@ -8,6 +8,7 @@ let zumbi_1 = new Zumbi(1250,260,90,120,'./assets/zumbidesenhado.png')
 let zumbi_2 = new Zumbi(1250,360,90,120,'./assets/zumbidesenhado.png')
 let zumbi_3 = new Zumbi(1250,460,90,120,'./assets/zumbidesenhado.png')
 
+
 let bullets = 15
 
 let grupoTiros = [] 
@@ -28,6 +29,17 @@ let tiros = {
 }
 
 
+let fundo = new Audio('./assets/PvZ_1.wav')
+let disparo = new Audio('./assets/Tiro.wav')
+let zumbis = new Audio('./assets/Zumbis.wav')
+
+
+fundo.volume = 0.6
+fundo.loop = true
+
+zumbis.volume = 0.9
+
+disparo.volume = 0.6
 
 document.addEventListener('keydown', (e)=>{
     if(e.key === 'w'){
@@ -70,7 +82,13 @@ function desenha(){
     
 }
 function atualiza(){
+
     //planta
+
+    fundo.play()
+    zumbis.play()
+
+
     planta.atual_planta()
     //tiro
     tiros.atual()
