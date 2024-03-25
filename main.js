@@ -82,6 +82,16 @@ let zumbis ={
     })
   }
 }
+let fundo = new Audio('./assets/PvZ_1.wav')
+let disparo = new Audio('./assets/Tiro.wav')
+let zumbiA = new Audio('./assets/Zumbis.wav')
+
+fundo.volume = 0.6
+fundo.loop = true
+
+zumbiA.volume = 0.9
+
+disparo.volume = 0.6
 
 let infinityBg = {
   bg: new Obj(0,0,1300,600,"assets/fundojogo.png"),
@@ -151,6 +161,8 @@ let game = {
     shoots.update()
     zumbis.update()
     this.placar.update_text(pts)
+    fundo.play()
+    zumbiA.play()
   },
 }
 
