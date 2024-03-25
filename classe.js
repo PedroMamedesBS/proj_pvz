@@ -4,11 +4,11 @@ class Obj{
   timer = 0
   set_visible = true
 
-  constructor(x,y,width,height, image){
+  constructor(x,y,w,h, image){
     this.x = x
     this.y = y
-    this.width = width
-    this.height = height
+    this.w = w
+    this.h = h
     this.image = image
   }
 
@@ -16,7 +16,7 @@ class Obj{
     if (this.set_visible) {
       var img = new Image()
       img.src = this.image
-      canvas.drawImage(img, this.x, this.y, this.width, this.height)
+      canvas.drawImage(img, this.x, this.y, this.w, this.h)
     }
   }
 
@@ -33,10 +33,10 @@ class Obj{
   }
 
   collide(obj){
-    if (this.x < obj.x + obj.width &&
-        this.x + this.width > obj.x &&
-        this.y < obj.y + obj.height &&
-        this.y + this.height > obj.y)
+    if (this.x < obj.x + obj.w &&
+        this.x + this.w > obj.x &&
+        this.y < obj.y + obj.h &&
+        this.y + this.h > obj.y)
         {
           return true
         }else {

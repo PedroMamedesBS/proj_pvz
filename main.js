@@ -7,11 +7,26 @@ document.addEventListener("click", (e)=>{
   }
 });
 
-document.addEventListener("mousemove", (e)=>{
-  if(cenaCorrente.movePlanta){
-    cenaCorrente.movePlanta(e)
+// document.addEventListener("mousemove", (e)=>{
+//   if(cenaCorrente.movePlanta){
+//     cenaCorrente.movePlanta(e)
+//   }
+// })
+document.addEventListener("keydown", (e)=>{
+  if(e.key === 'w'){
+    movePlanta -=10
+  }else if(e.key === 's'){
+    movePlanta(e) += 10
   }
 })
+document.addEventListener("keyup", (e)=>{
+  if(e.key === 'w'){
+    movePlanta = 0
+  }else if(e.key === 's'){
+    movePlanta(e) = 0
+  }
+})
+
 
 let cenaCorrente = {}
 function mudaCena(cena){
@@ -127,13 +142,13 @@ let game = {
     if(bullets > 0){
       bullets -= 1
       
-      groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.height/2)-30,30,30, "assets/tiro.png"))
+      groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.h/2)-30,30,30, "assets/tiro.png"))
     }
   },
 
   movePlanta(event){
     this.planta.x = event.offsetX - 40
-    this.planta.y = event.offsetY - this.planta.height/2
+    this.planta.y = event.offsetY - this.planta.h/2
   },
 
   draw(){
