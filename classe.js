@@ -3,6 +3,7 @@ class Obj{
   frame = 0
   timer = 0
   set_visible = true
+  vida = 5
 
   constructor(x,y,w,h, image){
     this.x = x
