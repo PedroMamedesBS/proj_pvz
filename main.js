@@ -7,9 +7,15 @@ document.addEventListener("click", (e)=>{
   }
 });
 
-document.addEventListener("mousemove", (e)=>{
+document.addEventListener('keydown',(e)=>{
   if(cenaCorrente.moveHeroi){
-    cenaCorrente.moveHeroi(e)
+      cenaCorrente.moveHeroi(e)
+  }
+})
+
+document.addEventListener('keyup', (e)=>{
+  if(cenaCorrente.moveHeroi){
+      cenaCorrente.moveHeroi(e)
   }
 })
 
@@ -148,8 +154,12 @@ let game = {
   },
 
   moveHeroi(event){
-    this.heroi.x = event.offsetX - 40
-    this.heroi.y = event.offsetY - this.heroi.height/2
+    const speed = 50;
+    if (event.key === "w") {
+        this.heroi.y -= speed;
+      } else if (event.key === "s") {
+        this.heroi.y += speed;
+      }console.log(event)
   },
 
   draw(){
