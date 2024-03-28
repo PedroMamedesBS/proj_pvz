@@ -93,12 +93,12 @@ let zumbis ={
 
 let infinityBg = {
   bg: new Obj(0,0,1300,600,"assets/fundojogo.png"),
-  bg2: new Obj(-1300,0,1300,600,"assets/fundo2.jpeg"),
+ 
   bg3: new Obj(-2600,0,1300,600,"assets/fundo.png"),
 
   draw(){
     this.bg.draw()
-    this.bg2.draw()
+    
     
   },
 
@@ -113,6 +113,8 @@ let menu = {
   titulo: new Text("Plantas vs Zumbis"),
   titulo2: new Text("Click para Iniciar"),
   planta: new Obj(320,350,80,120, "assets/planta.png"),
+  gamestart: new Obj(0,0,1300,600,"assets/GAMESTART.jpeg"),
+  
   
   click(){
     mudaCena(game)
@@ -123,10 +125,18 @@ let menu = {
     this.titulo.draw_text(80,"Tahoma",430,200,"white")
     this.titulo2.draw_text(40,"Verdana",550,400,"white")
     this.planta.draw()
+    this.gamestart.draw()
+    
   },
   update(){
     infinityBg.moveBg()
   },
+}
+let game_over_img = {
+  bg : new Obj(0,0,1300,600,"assets/GAMEOVER.jpeg"),
+  draw(){
+    this.bg.draw()
+  }
 }
 
 let game = {
@@ -172,15 +182,17 @@ let game = {
 let gameOver = {
   placar_txt: new Text("Pontos: "),
   placar: new Text(pts),
-  lbl_game_over: new Text("Game Over"),
+  lbl_game_over: new Text("OS ZUMBIS COMERAM SEU CÉREBRO🧟"),
+  
 
   draw(){
     infinityBg.draw()
     this.placar_txt.draw_text(30,"Tahoma",1100,50,"white")
     this.placar.draw_text(30,"Tahoma",1210,50,"white")
-    this.lbl_game_over.draw_text(80,"Verdana",400,300,"white")
-    som1.pause()
-    som3.play()
+    this.lbl_game_over.draw_text(50,"Tahoma",320,300,"white")
+    game_over_img.draw()
+  
+    
   },
   update(){
     infinityBg.moveBg()
