@@ -102,7 +102,7 @@ let infinityBg = {
   },
 
   moveBg(){
-  //  sim
+  
   },
 
 }
@@ -141,14 +141,7 @@ let game = {
     }
   },
 
-  moveplanta(event){
-    const speed = 60;
-    if (event.key === "w") {
-        this.planta.y -= speed;
-      } else if (event.key === "s") {
-        this.planta.y += speed;
-      }console.log(event)
-  },
+
 
   draw(){
     infinityBg.draw()
