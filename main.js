@@ -93,11 +93,12 @@ let zumbis ={
 
 let infinityBg = {
   bg: new Obj(0,0,1300,600,"assets/fundojogo.png"),
-  bg2: new Obj(-1300,0,1300,600,"assets/fundo2.png"),
+  bg2: new Obj(-1300,0,1300,600,"assets/fundo2.jpeg"),
   bg3: new Obj(-2600,0,1300,600,"assets/fundo.png"),
 
   draw(){
     this.bg.draw()
+    this.bg2.draw()
     
   },
 
@@ -123,7 +124,7 @@ let menu = {
   
   titulo: new Text("Plantas vs Zumbis"),
   titulo2: new Text("Click para Iniciar"),
-  heroi: new Obj(30,380,80,120, "assets/planta.png"),
+  heroi: new Obj(320,350,80,120, "assets/planta.png"),
   
   click(){
     mudaCena(game)
@@ -131,8 +132,8 @@ let menu = {
 
   draw(){
     infinityBg.draw()
-    this.titulo.draw_text(80,"Tahoma",500,200,"darkolivegreen")
-    this.titulo2.draw_text(40,"Verdana",430,400,"white")
+    this.titulo.draw_text(80,"Tahoma",430,200,"white")
+    this.titulo2.draw_text(40,"Verdana",550,400,"white")
     this.heroi.draw()
   },
   update(){
@@ -143,7 +144,7 @@ let menu = {
 let game = {
   placar_txt: new Text("Pontos: "),
   placar: new Text(pts),
-  heroi: new Obj(30,200,80,120, "assets/planta.png"),
+  heroi: new Obj(320,200,80,120, "assets/planta.png"),
 
   click(){
     if(bullets > 0){
@@ -154,7 +155,7 @@ let game = {
   },
 
   moveHeroi(event){
-    const speed = 50;
+    const speed = 60;
     if (event.key === "w") {
         this.heroi.y -= speed;
       } else if (event.key === "s") {

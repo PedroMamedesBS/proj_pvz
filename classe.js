@@ -72,5 +72,7 @@ class Zumbi extends Obj{
     this.x -= this.velocidade
   }
 }
-
+class Img extends Obj{
+  
+}
 
