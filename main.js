@@ -19,6 +19,7 @@ document.addEventListener('keyup', (e)=>{
   }
 })
 
+
 let cenaCorrente = {}
 function mudaCena(cena){
   cenaCorrente = cena
@@ -26,7 +27,7 @@ function mudaCena(cena){
 
 
 
-let bullets = 5
+let bullets = 15
 let pts = 0
 
 let groupShoot = []
@@ -51,10 +52,9 @@ let zumbis ={
   time : 0,
   spawZumbi(){
     this.time +=1
-    
     pos_Y = Math.random() *(500 - 80) + 80
     if(this.time>=60){
-      grupoZumbis.push(new Zumbi(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
+      grupoZumbis.push(new Zumbi(1400, pos_Y, 120, 120, "assets/zumbidesenhado.png"))
       this.time=0
     }
   },
@@ -64,7 +64,7 @@ let zumbis ={
         if(shoot.collide(zumbi)){
           groupShoot.splice(groupShoot.indexOf(shoot),1)
           grupoZumbis.splice(grupoZumbis.indexOf(zumbi),1)
-          bullets = 5
+          bullets = 15
           pts += 1
           
         }
@@ -89,11 +89,22 @@ let zumbis ={
     })
   }
 }
+let fundo = new Audio('./assets/PvZ_1.wav')
+let disparo = new Audio('./assets/Tiro.wav')
+let zumbiA = new Audio('./assets/Zumbis.wav')
+
+fundo.volume = 0.6
+fundo.loop = true
+
+zumbiA.volume = 0.9
+
+disparo.volume = 0.6
 
 let infinityBg = {
   bg: new Obj(0,0,1300,600,"assets/fundojogo.png"),
   bg2: new Obj(-1300,0,1300,600,"assets/fundo2.jpeg"),
   bg3: new Obj(-2600,0,1300,600,"assets/fundo.png"),
+
 
   draw(){
     this.bg.draw()
@@ -102,7 +113,6 @@ let infinityBg = {
   },
 
   moveBg(){
-  
   },
 
 }
@@ -136,10 +146,18 @@ let game = {
   click(){
     if(bullets > 0){
       bullets -= 1
-      
       groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.height/2)-30,30,30, "assets/tiro.png"))
     }
   },
+  moveplanta(event){
+    const speed = 60;
+    if (event.key === "w") {
+        this.planta.y -= speed;
+      } else if (event.key === "s") {
+        this.planta.y += speed;
+      }console.log(event)
+  },
+
 
 
 
@@ -158,6 +176,8 @@ let game = {
     shoots.update()
     zumbis.update()
     this.placar.update_text(pts)
+    fundo.play()
+    zumbiA.play()
   },
 }
 
@@ -181,7 +201,7 @@ let gameOver = {
 
   limpa_cena(){
     pts = 0
-    bullets = 5
+    bullets = 15
     grupoZumbis = []
     groupShoot = []    
   },
