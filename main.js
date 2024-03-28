@@ -51,8 +51,6 @@ let zumbis ={
   time : 0,
   spawZumbi(){
     this.time +=1
-    // size_X = Math.random() * (100 - 80) + 80
-    // size_Y = Math.random() * (140 - 80) + 80
     pos_Y = Math.random() *(500 - 80) + 80
     if(this.time>=60){
       grupoZumbis.push(new Zumbi(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
@@ -130,12 +128,6 @@ let menu = {
     infinityBg.moveBg()
   },
 }
-let game_over_img = {
-  bg : new Obj(0,0,1300,600,"assets/GAMEOVER.jpeg"),
-  draw(){
-    this.bg.draw()
-  }
-}
 
 let game = {
   placar_txt: new Text("Pontos: "),
@@ -175,6 +167,13 @@ let game = {
     zumbis.update()
     this.placar.update_text(pts)
   },
+}
+
+let game_over_img = {
+  bg : new Obj(0,0,1300,600,"assets/GAMEOVER.jpeg"),
+  draw(){
+    this.bg.draw()
+  }
 }
 
 let gameOver = {
