@@ -8,14 +8,14 @@ document.addEventListener("click", (e)=>{
 });
 
 document.addEventListener('keydown',(e)=>{
-  if(cenaCorrente.moveHeroi){
-      cenaCorrente.moveHeroi(e)
+  if(cenaCorrente.moveplanta){
+      cenaCorrente.moveplanta(e)
   }
 })
 
 document.addEventListener('keyup', (e)=>{
-  if(cenaCorrente.moveHeroi){
-      cenaCorrente.moveHeroi(e)
+  if(cenaCorrente.moveplanta){
+      cenaCorrente.moveplanta(e)
   }
 })
 
@@ -112,7 +112,7 @@ let menu = {
   
   titulo: new Text("Plantas vs Zumbis"),
   titulo2: new Text("Click para Iniciar"),
-  heroi: new Obj(320,350,80,120, "assets/planta.png"),
+  planta: new Obj(320,350,80,120, "assets/planta.png"),
   
   click(){
     mudaCena(game)
@@ -122,7 +122,7 @@ let menu = {
     infinityBg.draw()
     this.titulo.draw_text(80,"Tahoma",430,200,"white")
     this.titulo2.draw_text(40,"Verdana",550,400,"white")
-    this.heroi.draw()
+    this.planta.draw()
   },
   update(){
     infinityBg.moveBg()
@@ -132,22 +132,22 @@ let menu = {
 let game = {
   placar_txt: new Text("Pontos: "),
   placar: new Text(pts),
-  heroi: new Obj(320,200,80,120, "assets/planta.png"),
+  planta: new Obj(320,200,80,120, "assets/planta.png"),
 
   click(){
     if(bullets > 0){
       bullets -= 1
       
-      groupShoot.push(new Shoot((this.heroi.x+60),(this.heroi.y+this.heroi.height/2)-30,30,30, "assets/tiro.png"))
+      groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.height/2)-30,30,30, "assets/tiro.png"))
     }
   },
 
-  moveHeroi(event){
+  moveplanta(event){
     const speed = 60;
     if (event.key === "w") {
-        this.heroi.y -= speed;
+        this.planta.y -= speed;
       } else if (event.key === "s") {
-        this.heroi.y += speed;
+        this.planta.y += speed;
       }console.log(event)
   },
 
@@ -155,7 +155,7 @@ let game = {
     infinityBg.draw()
     this.placar_txt.draw_text(30,"Tahoma",1100,50,"white")
     this.placar.draw_text(30,"Tahoma",1210,50,"white")
-    this.heroi.draw()
+    this.planta.draw()
     shoots.draw()
     zumbis.draw()
     
