@@ -153,7 +153,7 @@ let game = {
     infinityBg.draw()
     this.placar_txt.draw_text(30,"Tahoma",1100,50,"white")
     this.placar.draw_text(30,"Tahoma",1210,50,"white")
-    this.planta.draw()
+    this.heroi.draw()
     shoots.draw()
     zumbis.draw()
     
