@@ -102,7 +102,7 @@ let infinityBg = {
   },
 
   moveBg(){
-   
+  //  sim
   },
 
 }
