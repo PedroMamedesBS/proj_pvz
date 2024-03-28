@@ -83,7 +83,7 @@ let zumbis ={
     this.destroyZumbi()
     grupoZumbis.forEach((zumbi)=>{
       zumbi.move()
-      if(zumbi.x < -100){
+      if(zumbi.x < 220){
         grupoZumbis.splice(grupoZumbis.indexOf(zumbi),1)
         mudaCena(gameOver)
       }
@@ -98,8 +98,6 @@ let infinityBg = {
 
   draw(){
     this.bg.draw()
-    
-    
   },
 
   moveBg(){
@@ -154,9 +152,9 @@ let game = {
 
   moveplanta(event){
     const speed = 60;
-    if (event.key === "w") {
+    if (event.key === "w" && this.planta.y > 40) {
         this.planta.y -= speed;
-      } else if (event.key === "s") {
+      } else if (event.key === "s" && this.planta.y < 561 - this.planta.height) {
         this.planta.y += speed;
       }console.log(event)
   },
