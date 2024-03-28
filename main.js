@@ -103,19 +103,7 @@ let infinityBg = {
   },
 
   moveBg(){
-    // this.bg.x +=1
-    // this.bg2.x +=1
-    // this.bg3.x +=1
-
-    // if(this.bg.x >= 2600){
-    //   this.bg.x = 0
-    // }
-    // if(this.bg2.x >= 1300){
-    //   this.bg2.x = -1300
-    // }
-    // if(this.bg3.x >= 0){
-    //   this.bg3.x = -2600
-    // }
+   
   },
 
 }
