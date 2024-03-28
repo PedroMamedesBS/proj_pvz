@@ -7,26 +7,11 @@ document.addEventListener("click", (e)=>{
   }
 });
 
-// document.addEventListener("mousemove", (e)=>{
-//   if(cenaCorrente.movePlanta){
-//     cenaCorrente.movePlanta(e)
-//   }
-// })
-document.addEventListener("keydown", (e)=>{
-  if(e.key === 'w'){
-    movePlanta -=10
-  }else if(e.key === 's'){
-    movePlanta(e) += 10
+document.addEventListener("mousemove", (e)=>{
+  if(cenaCorrente.moveHeroi){
+    cenaCorrente.moveHeroi(e)
   }
 })
-document.addEventListener("keyup", (e)=>{
-  if(e.key === 'w'){
-    movePlanta = 0
-  }else if(e.key === 's'){
-    movePlanta(e) = 0
-  }
-})
-
 
 let cenaCorrente = {}
 function mudaCena(cena){
@@ -110,9 +95,12 @@ disparo.volume = 0.6
 
 let infinityBg = {
   bg: new Obj(0,0,1300,600,"assets/fundojogo.png"),
-  
+  bg2: new Obj(-1300,0,1300,600,"assets/fundo2.png"),
+  bg3: new Obj(-2600,0,1300,600,"assets/fundo.png"),
+
   draw(){
     this.bg.draw()
+    this.bg2.draw()
     
   },
 
@@ -126,7 +114,7 @@ let menu = {
   
   titulo: new Text("Plantas vs Zumbis"),
   titulo2: new Text("Click para Iniciar"),
-  planta: new Obj(30,380,80,120, "assets/planta.png"),
+  heroi: new Obj(30,380,80,120, "assets/planta.png"),
   
   click(){
     mudaCena(game)
@@ -136,7 +124,7 @@ let menu = {
     infinityBg.draw()
     this.titulo.draw_text(80,"Tahoma",500,200,"darkolivegreen")
     this.titulo2.draw_text(40,"Verdana",430,400,"white")
-    this.planta.draw()
+    this.heroi.draw()
   },
   update(){
     infinityBg.moveBg()
@@ -146,7 +134,7 @@ let menu = {
 let game = {
   placar_txt: new Text("Pontos: "),
   placar: new Text(pts),
-  planta: new Obj(30,200,70,90, "assets/planta.png"),
+  heroi: new Obj(30,200,80,120, "assets/planta.png"),
 
   click(){
     if(bullets > 0){
@@ -156,9 +144,9 @@ let game = {
     }
   },
 
-  movePlanta(event){
-    this.planta.x = event.offsetX - 40
-    this.planta.y = event.offsetY - this.planta.h/2
+  moveHeroi(event){
+    this.heroi.x = event.offsetX - 40
+    this.heroi.y = event.offsetY - this.heroi.height/2
   },
 
   draw(){
@@ -176,10 +164,9 @@ let game = {
     shoots.update()
     zumbis.update()
     this.placar.update_text(pts)
-    fundo.play()
-    zumbiA.play()
   },
 }
+  
 
 let gameOver = {
   placar_txt: new Text("Pontos: "),
