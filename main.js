@@ -25,9 +25,9 @@ function mudaCena(cena){
 }
 
 let som1 = new Audio ("./assets/PvZ_1.wav")
-let som2 = new Audio ("./assets/game-over.wav")
+let som2 = new Audio ("./assets/game_over_ofc.wav")
 let som3 = new Audio ("./assets/Zumbis.wav")
-let som4 = new Audio ("./assets/Tiro.wav")
+let som4 = new Audio ("./assets/Tiro.mp3")
 
 
 let bullets = 15
@@ -198,6 +198,7 @@ let gameOver = {
     som1.pause()
     som2.play()
     som3.pause()
+    
     
     
   },
