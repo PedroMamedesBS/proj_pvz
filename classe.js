@@ -1,7 +1,5 @@
 class Obj{
 
-  frame = 0
-  timer = 0
   set_visible = true
 
   constructor(x,y,w,h, image){
