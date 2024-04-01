@@ -55,7 +55,7 @@ let zumbis ={
   time : 0,
   spawZumbi(){
     this.time +=1
-    pos_Y = Math.random() *(500 - 80) + 80
+    pos_Y = Math.random() *(500 - 120) + 120
     if(this.time>=60){
       grupoZumbis.push(new Zumbi(1400, pos_Y, 150, 150, "assets/zumbidesenhado.png"))
       this.time=0
