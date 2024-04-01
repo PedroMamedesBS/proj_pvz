@@ -96,15 +96,10 @@ let zumbis ={
 
 let infinityBg = {
   bg: new Obj(0,0,1300,600,"assets/fundojogo.png"),
- 
   bg3: new Obj(-2600,0,1300,600,"assets/fundo.png"),
 
   draw(){
     this.bg.draw()
-  },
-
-  moveBg(){
-   
   },
 
 }
@@ -130,7 +125,7 @@ let menu = {
     
   },
   update(){
-    infinityBg.moveBg()
+    
   },
 }
 
@@ -164,12 +159,10 @@ let game = {
     shoots.draw()
     zumbis.draw()
     som1.play()
-    som2.pause()
-    
-     
+    som2.pause() 
   },
+  
   update(){
-    infinityBg.moveBg()
     shoots.update()
     zumbis.update()
     this.placar.update_text(pts)
@@ -203,7 +196,6 @@ let gameOver = {
     
   },
   update(){
-    infinityBg.moveBg()
     this.placar.update_text(pts)
   },
 
