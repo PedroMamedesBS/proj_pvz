@@ -143,7 +143,7 @@ let game = {
     if(bullets > 0){
       bullets -= 1
       som4.play()
-      groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.height/2)-30,30,30, "assets/tiro.png"))
+      groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.h/2)-30,30,30, "assets/tiro.png"))
     }
   },
 
@@ -151,7 +151,7 @@ let game = {
     const speed = 60;
     if (event.key === "w" && this.planta.y > 40) {
         this.planta.y -= speed;
-      } else if (event.key === "s" && this.planta.y < 561 - this.planta.height) {
+      } else if (event.key === "s" && this.planta.y < 561 - this.planta.h) {
         this.planta.y += speed;
       }console.log(event)
   },
