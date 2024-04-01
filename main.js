@@ -24,6 +24,10 @@ function mudaCena(cena){
   cenaCorrente = cena
 }
 
+let som1 = new Audio ("./assets/PvZ_1.wav")
+let som2 = new Audio ("./assets/game-over.wav")
+let som3 = new Audio ("./assets/Zumbis.wav")
+let som4 = new Audio ("./assets/Tiro.wav")
 
 
 let bullets = 15
@@ -65,6 +69,7 @@ let zumbis ={
           grupoZumbis.splice(grupoZumbis.indexOf(zumbi),1)
           bullets = 15
           pts += 1
+          som3.play()
           
         }
       })
@@ -137,7 +142,7 @@ let game = {
   click(){
     if(bullets > 0){
       bullets -= 1
-      
+      som4.play()
       groupShoot.push(new Shoot((this.planta.x+60),(this.planta.y+this.planta.height/2)-30,30,30, "assets/tiro.png"))
     }
   },
@@ -158,6 +163,8 @@ let game = {
     this.planta.draw()
     shoots.draw()
     zumbis.draw()
+    som1.play()
+    som2.pause()
     
      
   },
@@ -188,7 +195,10 @@ let gameOver = {
     this.placar.draw_text(30,"Tahoma",1210,50,"white")
     this.lbl_game_over.draw_text(50,"Tahoma",320,300,"white")
     game_over_img.draw()
-  
+    som1.pause()
+    som2.play()
+    som3.pause()
+    
     
   },
   update(){
